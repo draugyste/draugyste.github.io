@@ -1,26 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Home Dashboard</title>
+    <title>Mano Išmanieji Namai</title>
+    <!-- Įkeliame gražų šriftą ir namų piktogramą -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
     <style>
-        body, html {
+        * {
             margin: 0;
             padding: 0;
-            height: 100%;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Gražus, modernus tamsus gradientas su švelniu melsvu švytėjimu */
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            color: #f8fafc;
             overflow: hidden;
         }
-        iframe {
-            border: none;
-            width: 100%;
-            height: 100%;
+
+        /* Dekoratyvūs šviečiantys apskritimai fone didesniam gyliui */
+        .bg-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(0,0,0,0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 2;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        h1 {
+            font-weight: 300;
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+        }
+
+        p {
+            font-weight: 300;
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        /* Modernus, permatomas (Glassmorphism) mygtukas */
+        .ha-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #ffffff;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        /* Efektas užvedus pelę */
+        .ha-button:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.25), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        /* Efektas paspaudus */
+        .ha-button:active {
+            transform: translateY(-1px);
+        }
+
+        .ha-button i {
+            font-size: 1.5rem;
+            color: #38bdf8; /* Klasikinė Home Assistant melsva spalva */
+            transition: transform 0.4s;
+        }
+
+        .ha-button:hover i {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        /* Švelnus puslapio atsiradimo efektas */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <!-- Replace with your public Home Assistant URL -->
-    <!-- Pro-tip: Append ?external_auth=1 to adapt the UI for external views, or link straight to a specific dashboard view -->
-    <iframe src="https://duckdns.org"></iframe>
+
+    <div class="bg-glow"></div>
+
+    <div class="container">
+        <h1>Išmanieji Namai</h1>
+        <p>Valdykite savo namų aplinką saugiai ir patogiai</p>
+        
+        <!-- PAKEISKITE NUORODĄ ČIA SAVAIS DUOMENIMIS -->
+        <a href="https://draugyste.github.io" target="_blank" class="ha-button">
+            <i class="fa-solid fa-house-laptop"></i>
+            Prisijungti prie Home Assistant
+        </a>
+    </div>
+
 </body>
 </html>
